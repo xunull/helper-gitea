@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"github.com/spf13/cobra"
 	"github.com/xunull/helper-gitea/pkg/helper_api"
 )
@@ -14,6 +15,19 @@ var orgCmd = &cobra.Command{
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 
+	},
+}
+
+var orgListCmd = &cobra.Command{
+	Use:   "list",
+	Short: "list",
+	Long:  `list`,
+	PreRun: func(cmd *cobra.Command, args []string) {
+		helper_api.InitDefaultApi()
+	},
+	Run: func(cmd *cobra.Command, args []string) {
+		// todo
+		fmt.Println("org list called")
 	},
 }
 
@@ -61,6 +75,8 @@ var orgReposListCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(orgCmd)
 	orgCmd.AddCommand(orgReposCmd)
+	// todo
+	orgCmd.AddCommand(orgListCmd)
 	orgReposCmd.AddCommand(orgReposListCmd)
 	orgReposCmd.AddCommand(orgReposCreateCmd)
 }

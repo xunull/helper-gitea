@@ -30,7 +30,8 @@ var userRepoCreateCmd = &cobra.Command{
 	Short: "create",
 	Long:  `create`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("user called")
+		// todo
+		fmt.Println("user create called")
 	},
 }
 
@@ -49,6 +50,7 @@ var userRepoListCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(userCmd)
 	userCmd.AddCommand(userRepoCmd)
+	// todo
 	userRepoCmd.AddCommand(userRepoCreateCmd)
 	userRepoCmd.AddCommand(userRepoListCmd)
 
